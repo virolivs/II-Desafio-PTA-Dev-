@@ -7,9 +7,9 @@ const containerCharacter = document.getElementsByClassName("container-character"
 //definir constante para a velocidade do personagem
 const VELOCITY = 10;
 
-//
-const SCREEN_WIDTH = screen.width;
-const SCREEN_HEIGHT = screen.height;
+//definir o tamanho da página
+const SCREEN_WIDTH = window.innerWidth;
+const SCREEN_HEIGHT = window.innerHeight;
 
 //declarar variável para a posição incial do personagem no eixo horizontal
 let xPosition = 500;
@@ -38,22 +38,22 @@ window.addEventListener("keydown", (event) => {
     })
 
 
-    if(key === "ArrowUp"){
+    if(key === "ArrowUp" && yPosition>0){
         character.classList.add("turnUp");
         yPosition -= VELOCITY;
     }
 
-    if(key === "ArrowDown"){
+    if(key === "ArrowDown" && yPosition < SCREEN_HEIGHT - 100){
         character.classList.add("turnDown");
         yPosition += VELOCITY;
     }
 
-    if(key === "ArrowLeft"){
+    if(key === "ArrowLeft" && xPosition>0){
         character.classList.add("turnLeft");
         xPosition -= VELOCITY;
     }
 
-    if(key === "ArrowRight"){
+    if(key === "ArrowRight" && xPosition < SCREEN_WIDTH - 100){
         character.classList.add("turnRight");
         xPosition += VELOCITY;
     }
